@@ -1,0 +1,107 @@
+
+<div class="container">
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+            <div class="page-header">
+                <h1>
+                    Make a Booking
+                </h1>
+            </div>
+        </div>
+    </div>
+    <form name="bookingForm" novalidate ng-submit="submitBooking()">
+
+        <div class="row clearfix">
+            <div class="col-md-3 column">
+                <label for="selectClient">Select client:</label>
+                <!--<span class="label label-default">Label</span>-->
+            </div>
+            <div class="col-md-3 column">
+                <select ng-model="client" ng-options="cl.name for cl in clientsList" name="selectClient" ng-disabled="client.isNew" required focus-on-element="selectClient">
+                    <option value="">- Select -</option>
+                </select>
+            </div>
+            <div class="col-md-6 column">
+                <span class="validationMessage" ng-show="bookingForm.selectClient.$error.required && bookingForm.selectClient.$dirty">Please select a client or add a new one.</span>
+            </div>
+        </div>
+
+        <div class="row clearfix">
+            <div class="col-md-3 column">
+                <label>Or add new client:</label>
+            </div>
+            <div class="col-md-3 column">
+                <input type="checkbox" ng-model="client.isNew" ng-click="clearClientSelection()" />
+            </div>
+            <div class="col-md-6 column">
+            </div>
+        </div>
+
+        <div class="row clearfix" ng-show="client.isNew">
+            <div class="col-md-3 column">
+                <label for="txtClientName">Name: </label>
+            </div>
+            <div class="col-md-3 column">
+                <input type="text" name="txtClientName" ng-model="client.name" required />
+            </div>
+            <div class="col-md-6 column">
+                <span class="validationMessage" ng-show="bookingForm.txtClientName.$error.required && bookingForm.txtClientName.$dirty">Client name is required.</span>
+            </div>
+        </div>
+        <div class="row clearfix" ng-show="client.isNew">
+            <div class="col-md-3 column">
+                <label for="txtClientEmail">Email: </label>
+            </div>
+            <div class="col-md-3 column">
+                <input type="email" name="txtClientEmail" ng-model="client.email" required />
+            </div>
+            <div class="col-md-6 column">
+                <span class="validationMessage" ng-show="bookingForm.txtClientEmail.$error.required && bookingForm.txtClientEmail.$dirty">Client email is required.</span>
+                <span class="validationMessage" ng-show="bookingForm.txtClientEmail.$error.email && bookingForm.txtClientEmail.$dirty">Client email is not in correct format.</span>
+            </div>
+        </div>
+
+        <div class="row clearfix">
+            <div class="col-md-3 column">
+                <label for="selectJob">Select job(s):</label>
+            </div>
+            <div class="col-md-3 column">
+                <ul ng-repeat="job in jobsList" style="list-style-type: none;">
+                    <li>
+                        <input type="checkbox" value="job.name" name="selectedJobs[]" ng-checked="jobsSelected.indexOf(job.name) > -1" ng-click="toggleSelection(job.name)" />{{job.name}}
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-6 column">
+            </div>
+        </div>
+
+        <div class="row clearfix">
+            <div class="col-md-3 column">
+                <label for="selectMechanic">Select a mechanic:</label>
+            </div>
+            <div class="col-md-3 column">
+                <select ng-model="mechanicSelected" ng-options="mechanic.name for mechanic in mechanicsList"></select>
+            </div>
+            <div class="col-md-6 column">
+            </div>
+        </div>
+
+        <div class="row clearfix">
+            <div class="col-md-3 column">
+                <label for="dateselected">Select date:</label>
+            </div>
+            <div class="col-md-3 column">
+                <input name="datePicker" type="date" required ng-model="dateSelected" select-todays-date />
+            </div>
+            <div class="col-md-6 column">
+            </div>
+        </div>
+
+        <div class="row clearfix">
+            <div class="col-md-3 column">
+                <button type="submit" class="btn btn-default" ng-disabled="bookingForm.$pristine || (bookingForm.$invalid && bookingForm.$dirty)">Submit</button>
+            </div>
+        </div>
+    </form>
+</div>

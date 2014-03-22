@@ -1,0 +1,101 @@
+/* app css stylesheet */
+
+.menu {
+  list-style: none;
+  border-bottom: 0.1em solid black;
+  margin-bottom: 2em;
+  padding: 0 0 0.5em;
+}
+
+.menu:before {
+  content: "[";
+}
+
+.menu:after {
+  content: "]";
+}
+
+.menu > li {
+  display: inline;
+}
+
+.menu > li:before {
+  content: "|";
+  padding-right: 0.3em;
+}
+
+.menu > li:nth-child(1):before {
+  content: "";
+  padding: 0;
+}
+
+input.ng-invalid.ng-dirty {
+	background-color: #FA787E;
+}
+
+input.ng-valid.ng-dirty {
+	background-color: #78FA89;
+}
+
+.validationMessage {
+	color: #FA787E;
+}
+
+.gridStyle {
+	border: 1px solid rgb(212,212,212);
+	width: 518px; 
+	height: 200px;
+}
+
+*{
+font-family: 'Open Sans', sans-serif;
+}
+.center-grey{
+	   background:#f2f2f2;
+}
+.slider{
+	/*position: relative;*/
+	padding:5px;
+	width:610px;
+	margin: auto;
+	margin-top: 40px;
+}
+.slide{
+	/*position:absolute;*/
+	top:0;
+	left:0;
+	box-shadow: 0px 0px 15px #999;
+}
+
+.arrows{
+	position: absolute;
+	top: 10px;
+	right: 20px;
+}
+
+.arrows img{
+	height: 32px;
+}
+
+h1{
+text-align: center;
+padding: 10px;
+font-size: 40px;
+color: #222;
+}
+ 
+.slide.ng-hide-add, .slide.ng-hide-remove {
+  -webkit-transition:all linear 0.5s;
+  -moz-transition:all linear 0.5s;
+  -o-transition:all linear 0.5s;
+  transition:all linear 0.5s;
+  display:block!important;
+}
+ 
+.slide.ng-hide-add.ng-hide-add-active,.slide.ng-hide-remove {
+  opacity:0;
+}
+ 
+.slide.ng-hide-add,.slide.ng-hide-remove.ng-hide-remove-active {
+  opacity:1;
+}

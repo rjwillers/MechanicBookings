@@ -1,0 +1,5 @@
+﻿[
+	{ "name": "minor service", "cost": "200" },
+	{ "name": "major service", "cost": "400" },
+	{ "name": "gear works", "cost": "100" }
+]
