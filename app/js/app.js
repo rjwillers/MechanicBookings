@@ -36,10 +36,6 @@ var app = angular.module('MechanicBookings', [
             templateUrl: 'partials/ViewBookings.tpl.html',
             controller: 'ViewBookingsController'
         });
-        $routeProvider.when('/CarsSlider', {
-            templateUrl: 'partials/CarsSlider.tpl.html',
-            controller: 'CarsSliderController'
-        });
         $routeProvider.otherwise({
             redirectTo: '/MakeBooking'
         });
